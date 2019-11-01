@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <div id="main">
+        <div class="convertor">
+        <h1>Currency Convertor</h1>
+        <p>Enter Amount</p> 
+        <input type="number" value="0" v-model="amountOfUAH" @change="result1">
+        <input type="number" value="0" v-model="amountOfDol" @change="result2">
+        <p>Convert From:</p>
+        <select name="" id="">
+            <option value="">UAH</option>
+        </select>
+        <p>Convert To:</p>
+        <select v-model="convTo">
+            <option v-for="item in bankVal">{{item.ccy}}</option>
+        </select>
+        <h3 v-if="((amountOfDol!=0) &&(amountOfUAH!=0)&&(convTo!='BTC')) ">From UAH: {{amountOfUAH}} UAH / {{courseBuy}} = {{amountOfDol}} {{convTo}}</h3>
+        
+        <div class="bitCoin" v-if="convTo=='BTC'">
+            <p> Converting From: USD To BTC and vice versa</p>
+            <input type="number" value="0" v-model="amountOfUAH" @change="result1">
+            <input type="number" value="0" v-model="amountOfDol" @change="result2">
+        </div>
+        <!-- <p>{{convTo}}</p> -->
+        <!-- <ul>
+            <li v-for="item in bankVal">{{item}}</li>
+        </ul> --></div>
+    </div>
+</body>
+</html>
+<script src="main.js"></script>
